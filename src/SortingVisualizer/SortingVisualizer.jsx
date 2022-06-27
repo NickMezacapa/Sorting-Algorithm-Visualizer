@@ -1,17 +1,17 @@
 import React from 'react';
-import {getMergeSortAnimations} from '../sortingAlgorithms/sortingAlgorithms.js';
+import { getMergeSortAnimations } from '../sortingAlgorithms/sortingAlgorithms.js';
 import './SortingVisualizer.css';
 
-// Change this value for the speed of the animations.
+// value for the speed of the animations
 const ANIMATION_SPEED_MS = 1;
 
-// Change this value for the number of bars (value) in the array.
+// number of bars (value) in the array
 const NUMBER_OF_ARRAY_BARS = 190;
 
-// This is the main color of the array bars.
+// main color of the array bars
 const PRIMARY_COLOR = 'yellowgreen';
 
-// This is the color of array bars that are being compared throughout the animations.
+// color of array bars that are being compared throughout the animations
 const SECONDARY_COLOR = 'red';
 
 export default class SortingVisualizer extends React.Component {
@@ -32,7 +32,7 @@ export default class SortingVisualizer extends React.Component {
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
       array.push(randomIntFromInterval(5, 530));
     }
-    this.setState({array});
+    this.setState({ array });
   }
 
   mergeSort() {
@@ -59,21 +59,8 @@ export default class SortingVisualizer extends React.Component {
     }
   }
 
- /*  quickSort() {
-    // We leave it as an exercise to the viewer of this code to implement this method.
-  }
 
-  heapSort() {
-    // We leave it as an exercise to the viewer of this code to implement this method.
-  }
 
-  bubbleSort() {
-    // We leave it as an exercise to the viewer of this code to implement this method.
-  } */
-
-  // NOTE: This method will only work if your sorting algorithms actually return
-  // the sorted arrays; if they return the animations (as they currently do), then
-  // this method will be broken.
   testSortingAlgorithms() {
     for (let i = 0; i < 100; i++) {
       const array = [];
@@ -88,32 +75,29 @@ export default class SortingVisualizer extends React.Component {
   }
 
   render() {
-    const {array} = this.state;
+    const { array } = this.state;
 
     return (
-    <div className='mainContainer'>
-      <div className="array-container">
-        {array.map((value, idx) => (
-          <div
-            className="array-bar"
-            key={idx}
-            style={{
-              backgroundColor: PRIMARY_COLOR,
-              height: `${value}px`,
-            }}></div>
-        ))}
-        <div className="buttonContainer">
-        <button onClick={() => this.resetArray()}>Generate New Array</button>
-        <button onClick={() => this.mergeSort()}>Merge Sort</button>
-        {/* <button onClick={() => this.quickSort()}>Quick Sort</button>
-        <button onClick={() => this.heapSort()}>Heap Sort</button>
-        <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
-        <button onClick={() => this.testSortingAlgorithms()}>
-          Test Sorting Algorithms (BROKEN)
-        </button> */}
+      <div className='mainContainer'>
+        <div className="array-container">
+          {array.map((value, idx) => (
+            <div
+              className="array-bar"
+              key={idx}
+              style={{
+                backgroundColor: PRIMARY_COLOR,
+                height: `${value}px`,
+              }}></div>
+          ))}
+          <div className="buttonContainer">
+            <button onClick={() => this.resetArray()}>Generate New Array</button>
+            <button onClick={() => this.mergeSort()}>Merge Sort</button>
+            <button onClick={() => this.quickSort()}>Quick Sort</button>
+            <button onClick={() => this.heapSort()}>Heap Sort</button>
+            <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
+          </div>
         </div>
-      </div>
-      </div>
+      </div >
     );
   }
 }
