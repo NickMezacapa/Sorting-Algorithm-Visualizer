@@ -61,7 +61,7 @@ export default class SortingVisualizer extends React.Component {
 
 
 
-  testSortingAlgorithms() {
+  testSort() {
     for (let i = 0; i < 100; i++) {
       const array = [];
       const length = randomIntFromInterval(1, 1000);
